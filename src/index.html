@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <meta
+      name="keywords"
+      content="Plotly, Plotly Express, cheat sheet, cheatsheet"
+    />
+    <meta name="author" content="Franz Diebold" />
+
+    <title>Plotly Express cheatsheet</title>
+
+    <link rel="stylesheet" href="A4.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.1/styles/github.min.css"
+    />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.1/highlight.min.js"></script>
+    <script>
+      hljs.highlightAll();
+    </script>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+
+  <body>
+    <div class="page">
+      <h1 class="title is-4">
+        <a href="https://plotly.com/python/plotly-express/" target="_blank"
+          >Plotly Express</a
+        >
+        cheatsheet
+      </h1>
+      <div class="columns">
+        <div class="column is-3">
+          <h3>General</h3>
+
+          <div class="group">
+            <h4>Install</h4>
+            <pre><code class="language-bash">pip install plotly</code></pre>
+          </div>
+
+          <div class="group">
+            <h4>Import</h4>
+            <pre><code class="language-python">import plotly.express as px</code></pre>
+          </div>
+
+          <div class="group">
+            <h4>General usage</h4>
+            <pre><code class="language-python">fig = px.chart_type(
+    df,
+    **chart_specific_parameters,
+    title="Chart title",
+    labels={"x_column_name": "X column name"},
+    width=600,
+    height=400,
+)
+fig.show()</code></pre>
+          </div>
+
+          <h3>Chart types</h3>
+
+          <div class="group">
+            <h4>Scatter</h4>
+            <pre><code class="language-python">px.scatter(
+    df,
+    x="sepal_width",
+    y="sepal_length",
+    color="species",
+    marginal_y="violin",
+    marginal_x="box",
+    trendline="ols",
+    hover_data=["petal_length", "petal_width"],
+)</code></pre>
+            <img src="images/scatter.svg" />
+          </div>
+        </div>
+        <div class="column is-3">
+          <div class="group">
+            <h4>Scatter matrix</h4>
+            <pre><code class="language-python">px.scatter_matrix(
+    df,
+    dimensions=[
+      "sepal_width", "sepal_length",
+      "petal_width", "petal_length"
+    ],
+    color="species",
+)</code></pre>
+            <img src="images/scatter_matrix.svg" />
+          </div>
+
+          <div class="group">
+            <h4>Histogram</h4>
+            <pre><code class="language-python">px.histogram(
+    df,
+    x="sepal_width",
+    color="species",
+    marginal="box",  # or "rug", "violin"
+    nbins=30,
+)</code></pre>
+            <img src="images/histogram.svg" />
+          </div>
+        </div>
+
+        <div class="column is-3">
+          <div class="group">
+            <h4>Box</h4>
+            <pre><code class="language-python">px.box(
+    df,
+    x="species", y="sepal_width",
+    notched=True, points="all"
+)</code></pre>
+            <img src="images/box.svg" />
+          </div>
+
+          <div class="group">
+            <h4>Density heatmap (2D Histogram)</h4>
+            <pre><code class="language-python">px.density_heatmap(
+    df,
+    x="sepal_width",
+    y="sepal_length",
+    nbinsx=20,
+    nbinsy=20,
+    histfunc="count",  # or "sum", "avg"
+    marginal_x="rug",
+    marginal_y="histogram",
+)</code></pre>
+            <img src="images/density_heatmap.svg" />
+          </div>
+        </div>
+
+        <div class="column is-3">
+          <div class="group">
+            <h4>Bar</h4>
+            <pre><code class="language-python">px.bar(count_df, x="species", y="count")</code></pre>
+            <img src="images/bar.svg" />
+          </div>
+
+          <div class="group">
+            <h4>Pie</h4>
+            <pre><code class="language-python">px.pie(count_df,
+       names="species", values="count")</code></pre>
+            <img src="images/pie.svg" />
+          </div>
+
+          <h3>More options</h3>
+
+          <div class="group">
+            <h4>Facet plots</h4>
+            <pre><code class="language-python">px.density_heatmap(
+    df,
+    x="sepal_width",
+    y="sepal_length",
+    facet_row="species",
+)</code></pre>
+            <img src="images/facet_plot.svg" />
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
