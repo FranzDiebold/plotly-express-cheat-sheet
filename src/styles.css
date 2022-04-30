@@ -10,6 +10,11 @@ h1.title a {
     color: var(--primary-color);
 }
 
+img.logo {
+    height: 2.5rem;
+    margin: -0.5rem;
+}
+
 h3 {
     color: var(--primary-color);
     font-size: 0.9em;
