@@ -9,11 +9,14 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v3
 
+      - name: Create build directory
+        run: mkdir build
+
       - name: Build PDF
         uses: fifsky/html-to-pdf-action@master
         with:
-          htmlFile: ./src/index.html
-          outputFile: ./build/Plotly_Express_cheatsheet.pdf
+          htmlFile: src/index.html
+          outputFile: build/Plotly_Express_cheatsheet.pdf
           pdfOptions: '{"printBackground": true}'
 
       - name: Deploy to GitHub Pages
