@@ -45,6 +45,15 @@ pre, pre code.hljs {
     font-weight: 600;
 }
 
+.group a {
+    color: var(--primary-color);
+}
+
+.group .icon {
+    float: right;
+    margin-bottom: -1.5rem;
+}
+
 .group svg {
     width: 0.8em;
     height: 0.8em;
