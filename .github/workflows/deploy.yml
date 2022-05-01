@@ -17,7 +17,7 @@ jobs:
         with:
           htmlFile: src/index.html
           outputFile: build/Plotly_Express_cheatsheet.pdf
-          pdfOptions: '{"format": "A4", "landscape": true, "printBackground": true}'
+          pdfOptions: '{"format": "A4", "landscape": true, "printBackground": true, "pageRanges": "1"}'
 
       - name: Deploy to GitHub Pages
         uses: JamesIves/github-pages-deploy-action@v4.3.3
