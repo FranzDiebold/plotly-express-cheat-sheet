@@ -71,3 +71,7 @@ pre, pre code.hljs {
 .group img {
     margin-top: -0.7rem;
 }
+
+.author {
+    font-size: 0.63rem;
+}
