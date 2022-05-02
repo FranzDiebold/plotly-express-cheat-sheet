@@ -1,0 +1,29 @@
+name: Build and deploy cheat sheet
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Create build directory
+        run: mkdir build
+
+      - name: Build PDF
+        uses: fifsky/html-to-pdf-action@master
+        with:
+          htmlFile: src/index.html
+          outputFile: build/Plotly_Express_cheatsheet.pdf
+          pdfOptions: '{"format": "A4", "landscape": true, "printBackground": true, "pageRanges": "1"}'
+
+      - name: Deploy to GitHub Pages
+        uses: JamesIves/github-pages-deploy-action@v4.3.3
+        with:
+          branch: gh-pages
+          folder: build
