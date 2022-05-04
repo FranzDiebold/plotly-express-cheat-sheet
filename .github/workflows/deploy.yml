@@ -19,13 +19,13 @@ jobs:
         uses: fifsky/html-to-pdf-action@master
         with:
           htmlFile: src/index.html
-          outputFile: build/Plotly_Express_cheatsheet.pdf
+          outputFile: build/Plotly_Express_cheat_sheet.pdf
           pdfOptions: '{"format": "A4", "landscape": true, "printBackground": true, "pageRanges": "1"}'
 
       - name: Create preview image
         uses: jruipinto/ImageMagick-action@v1
         with:
-          command: convert -density 154 -quality 100 build/Plotly_Express_cheatsheet.pdf build/Plotly_Express_cheatsheet.png
+          command: convert -density 154 -quality 100 build/Plotly_Express_cheat_sheet.pdf build/Plotly_Express_cheat_sheet.png
 
       - name: Deploy to GitHub Pages
         uses: JamesIves/github-pages-deploy-action@v4.3.3
