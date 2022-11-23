@@ -1,5 +1,16 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans');
+@import url('https://fonts.googleapis.com/css?family=Fira+Code');
+
 :root {
     --primary-color:#424f72;
+}
+
+body {
+    font-family: 'Open Sans';
+}
+
+code {
+    font-family: 'Fira Code';
 }
 
 h1.title {
@@ -72,6 +83,14 @@ pre, pre code.hljs {
     margin-top: -0.7rem;
 }
 
-.author {
+.info-columns {
+    margin-top: -3.1rem;
+}
+
+.infos {
     font-size: 0.63rem;
+}
+
+.infos-small {
+    font-size: 0.5rem;
 }
