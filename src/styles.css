@@ -72,6 +72,14 @@ pre, pre code.hljs {
     margin-top: -0.7rem;
 }
 
-.author {
+.info-columns {
+    margin-top: -3.1rem;
+}
+
+.infos {
     font-size: 0.63rem;
+}
+
+.infos-small {
+    font-size: 0.5rem;
 }
