@@ -132,8 +132,10 @@ fig.show()</code></pre>
             <pre><code class="language-python">px.scatter_matrix(
     df,
     dimensions=[
-      "sepal_width", "sepal_length",
-      "petal_width", "petal_length"
+      "sepal_width",
+      "sepal_length",
+      "petal_width",
+      "petal_length",
     ],
     color="species",
 )</code></pre>
@@ -174,8 +176,10 @@ fig.show()</code></pre>
             <h4>Box</h4>
             <pre><code class="language-python">px.box(
     df,
-    x="species", y="sepal_width",
-    notched=True, points="all"
+    x="species",
+    y="sepal_width",
+    notched=True,
+    points="all"
 )</code></pre>
             <img src="images/box.svg" />
           </div>
